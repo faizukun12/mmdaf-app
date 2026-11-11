@@ -3,233 +3,117 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MMDAF Studio — Platform Undangan Digital Multi-Acara</title>
+  <title>MMDAF Studio — Platform Undangan Digital Kota Baubau</title>
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; background-color: #0b0f17; color: #f3f4f6; }
+    body { font-family: 'Inter', sans-serif; background-color: #08090d; color: #f8fafc; }
     .font-serif-luxury { font-family: 'Cormorant Garamond', Georgia, serif; }
   </style>
 </head>
-<body class="min-h-screen flex flex-col bg-slate-950 text-slate-100">
-  <header class="sticky top-0 z-30 border-b border-amber-500/20 bg-slate-950/90 backdrop-blur-md px-4 py-3">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-400 to-amber-700 flex items-center justify-center text-slate-950 font-bold text-sm shadow">M</div>
-        <div>
-          <span class="font-bold text-base text-white tracking-wider">MMDAF <span class="text-amber-400 font-normal">STUDIO</span></span>
-          <p class="text-[10px] text-slate-400">Penerbit: mmdaf.my.id • Karya : G-Faizu_3.8 • Multi-Event</p>
+<body class="min-h-screen flex flex-col items-center justify-between p-4 sm:p-6 bg-radial-gradient">
+  
+  <div class="w-full max-w-md mx-auto space-y-6 pt-4 text-center">
+    
+    <!-- Profil & Brand Identity -->
+    <div class="space-y-3">
+      <div class="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-tr from-amber-500 via-yellow-400 to-amber-700 p-0.5 shadow-2xl shadow-amber-500/20">
+        <div class="w-full h-full bg-slate-950 rounded-[22px] flex items-center justify-center">
+          <span class="font-serif-luxury text-3xl font-bold text-amber-300">M</span>
         </div>
       </div>
-      <button onclick="publishInvitation()" class="px-4 py-2 rounded-xl text-xs font-semibold bg-gradient-to-r from-amber-400 to-yellow-600 text-slate-950 hover:brightness-110 shadow">
-        Publikasikan & Salin Link
-      </button>
+      <div>
+        <h1 class="text-xl font-bold tracking-wider text-white">MMDAF <span class="text-amber-400 font-light">STUDIO</span></h1>
+        <p class="text-xs text-amber-200/90 font-medium mt-0.5">Jasa Pembuatan Undangan Digital Online • Kota Baubau</p>
+        <p class="text-[11px] text-slate-400 mt-1 max-w-xs mx-auto">Elegan, Praktis, Lengkap dengan Musik, Doa Restu & Amplop Digital.</p>
+      </div>
     </div>
-  </header>
 
-  <main class="flex-1 max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-5 p-4 items-start">
-    <!-- PANEL KIRI: EDITOR MULTI-EVENT -->
-    <section class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-5 shadow-xl">
-      
-      <!-- PILIHAN 13 JENIS ACARA -->
-      <div class="border-b border-slate-800 pb-4 space-y-2">
-        <h3 class="text-xs font-bold uppercase tracking-wider text-amber-400">1. Kategori Jenis Acara</h3>
-        <select id="selectEventType" onchange="changeEventType()" class="w-full bg-slate-950 border border-amber-500/40 rounded-xl px-3 py-2 text-xs text-amber-300 font-semibold focus:outline-none">
-          <option value="nikah" selected>💍 Pernikahan (Wedding)</option>
-          <option value="khitan">✂️ Khitanan / Sunatan</option>
-          <option value="aqiqah">👶 Aqiqah</option>
-          <option value="tasyakuran">🤲 Tasyakuran / Doa Syukuran</option>
-          <option value="wisuda">🎓 Syukuran Wisuda</option>
-          <option value="ultah_anak">🎂 Ulang Tahun Anak</option>
-          <option value="ultah_dewasa">🎉 Ulang Tahun Dewasa / Sweet 17</option>
-          <option value="peresmian">🏢 Peresmian Usaha / Rumah Baru</option>
-          <option value="halal">🤝 Halal Bi Halal</option>
-          <option value="bukber">🌙 Buka Puasa Bersama (Bukber)</option>
-          <option value="natal">🎄 Perayaan Natal & Tahun Baru</option>
-          <option value="tiga_bulan">🍼 Syukuran 3 Bulanan / 7 Bulanan</option>
-          <option value="mepandes">🌸 Mepandes / Upacara Adat</option>
-        </select>
-      </div>
+    <!-- Tombol WhatsApp Langsung (Call To Action) -->
+    <a href="https://wa.me/6281234567890?text=Halo%20Admin%20MMDAF,%20saya%20mau%20tanya%20jasa%20pembuatan%20undangan%20digital" target="_blank" class="block w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/20 hover:brightness-110 transition">
+      💬 Chat WhatsApp / Pesan Undangan
+    </a>
 
-      <!-- Layout & Tema Warna -->
-      <div class="border-b border-slate-800 pb-4 space-y-2">
-        <h3 class="text-xs font-bold uppercase tracking-wider text-amber-400">2. Pilihan Tema Warna</h3>
-        <div class="grid grid-cols-3 gap-3">
-          <button type="button" onclick="changeTheme('gold')" class="p-2.5 rounded-xl border-2 border-amber-400 bg-slate-950 text-left">
-            <span class="w-4 h-4 rounded-full bg-amber-400 block mb-1"></span>
-            <div class="text-xs font-bold text-white">Gold Luxury</div>
-          </button>
-          <button type="button" onclick="changeTheme('emerald')" class="p-2.5 rounded-xl border border-slate-700 bg-slate-950 text-left">
-            <span class="w-4 h-4 rounded-full bg-emerald-400 block mb-1"></span>
-            <div class="text-xs font-bold text-white">Emerald Green</div>
-          </button>
-          <button type="button" onclick="changeTheme('rose')" class="p-2.5 rounded-xl border border-slate-700 bg-slate-950 text-left">
-            <span class="w-4 h-4 rounded-full bg-rose-400 block mb-1"></span>
-            <div class="text-xs font-bold text-white">Romantic Rose</div>
-          </button>
-        </div>
-      </div>
+    <!-- KATALOG BIOLINK PILIHAN ACARA -->
+    <div class="space-y-3 text-left">
+      <div class="text-[11px] font-bold uppercase tracking-widest text-slate-400 px-1">Katalog Contoh Undangan:</div>
 
-      <!-- Data Dinamis Sesuai Acara -->
-      <div class="border-b border-slate-800 pb-4 space-y-3">
-        <h3 id="labelDataAcara" class="text-xs font-bold uppercase tracking-wider text-amber-400">3. Data Mempelai / Tokoh Utama Acara</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <!-- 1. Pernikahan -->
+      <a href="/undangan.html?to=Tamu+Undangan" class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-900/90 border border-amber-500/30 hover:border-amber-400 hover:bg-slate-800/90 transition shadow-md group">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-lg">💍</div>
           <div>
-            <label id="lblNama1" class="block text-[11px] text-slate-400 mb-1">Nama Utama 1 (Mempelai Wanita / Yang Berhajat)</label>
-            <input id="inNama1" type="text" value="Raminianti, S.Ak" oninput="renderLive()" class="w-full rounded bg-slate-950 border border-slate-700 px-3 py-1.5 text-xs text-white" />
-          </div>
-          <div>
-            <label id="lblNama2" class="block text-[11px] text-slate-400 mb-1">Nama Utama 2 (Mempelai Pria / Nama Orang Tua)</label>
-            <input id="inNama2" type="text" value="Aliadin" oninput="renderLive()" class="w-full rounded bg-slate-950 border border-slate-700 px-3 py-1.5 text-xs text-white" />
+            <div class="text-xs font-bold text-white group-hover:text-amber-300 transition">Undangan Pernikahan (Wedding)</div>
+            <div class="text-[10px] text-slate-400">Contoh: Raminianti & Aliadin</div>
           </div>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <span class="text-slate-500 text-xs">➔</span>
+      </a>
+
+      <!-- 2. Khitanan -->
+      <a href="/khitan.html" class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-900/90 border border-emerald-500/30 hover:border-emerald-400 hover:bg-slate-800/90 transition shadow-md group">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-lg">✂️</div>
           <div>
-            <label class="block text-[11px] text-slate-400 mb-1">Hari & Tanggal</label>
-            <input id="inDate" type="text" value="Senin, 23 November 2026" oninput="renderLive()" class="w-full rounded bg-slate-950 border border-slate-700 px-3 py-1.5 text-xs text-white" />
-          </div>
-          <div>
-            <label class="block text-[11px] text-slate-400 mb-1">Waktu Acara</label>
-            <input id="inTime" type="text" value="10.00 WIT - Selesai" oninput="renderLive()" class="w-full rounded bg-slate-950 border border-slate-700 px-3 py-1.5 text-xs text-white" />
-          </div>
-          <div>
-            <label class="block text-[11px] text-slate-400 mb-1">Lokasi Gedung / Kota</label>
-            <input id="inLoc" type="text" value="Kota Baubau" oninput="renderLive()" class="w-full rounded bg-slate-950 border border-slate-700 px-3 py-1.5 text-xs text-white" />
+            <div class="text-xs font-bold text-white group-hover:text-emerald-300 transition">Undangan Walimatul Khitan</div>
+            <div class="text-[10px] text-slate-400">Nuansa Islami & Syukuran Anak</div>
           </div>
         </div>
-      </div>
+        <span class="text-slate-500 text-xs">➔</span>
+      </a>
 
-      <!-- Rekening Amplop / Tanda Kasih -->
-      <div class="space-y-3">
-        <h3 class="text-xs font-bold uppercase tracking-wider text-amber-400">4. Amplop Digital / Titip Hadiah</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      <!-- 3. Wisuda -->
+      <a href="/wisuda.html" class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-900/90 border border-blue-500/30 hover:border-blue-400 hover:bg-slate-800/90 transition shadow-md group">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-lg">🎓</div>
           <div>
-            <label class="block text-[11px] text-slate-400 mb-1">Nama Bank / E-Wallet</label>
-            <input id="inBank" type="text" value="Bank BRI" oninput="renderLive()" class="w-full rounded bg-slate-950 border border-slate-700 px-3 py-1.5 text-xs text-white" />
-          </div>
-          <div>
-            <label class="block text-[11px] text-slate-400 mb-1">Nomor Rekening</label>
-            <input id="inRek" type="text" value="488901053910537" oninput="renderLive()" class="w-full rounded bg-slate-950 border border-slate-700 px-3 py-1.5 text-xs text-amber-300 font-mono" />
-          </div>
-          <div>
-            <label class="block text-[11px] text-slate-400 mb-1">Atas Nama</label>
-            <input id="inOwner" type="text" value="a.n. RAMINIANTI" oninput="renderLive()" class="w-full rounded bg-slate-950 border border-slate-700 px-3 py-1.5 text-xs text-white" />
+            <div class="text-xs font-bold text-white group-hover:text-blue-300 transition">Tasyakuran Wisuda & Kelulusan</div>
+            <div class="text-[10px] text-slate-400">Gelar Sarjana / Profesi</div>
           </div>
         </div>
-      </div>
-    </section>
+        <span class="text-slate-500 text-xs">➔</span>
+      </a>
 
-    <!-- PANEL KANAN: LIVE PREVIEW HP TAMU -->
-    <section class="lg:col-span-5 flex flex-col items-center">
-      <div id="phoneDevice" class="w-full max-w-[380px] bg-[#12100e] border-4 border-amber-500 rounded-[38px] shadow-2xl overflow-hidden relative min-h-[670px] flex flex-col">
-        <div class="bg-black/90 px-5 py-2 border-b border-white/5 flex items-center justify-between text-[10px] text-amber-300 font-mono">
-          <span>PRATINJAU ACARA</span>
-          <span id="badgeEventPreview" class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300">Pernikahan</span>
-        </div>
-
-        <div class="p-6 text-center space-y-5 flex-1 relative overflow-y-auto">
+      <!-- 4. Aqiqah -->
+      <a href="/aqiqah.html" class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-900/90 border border-teal-500/30 hover:border-teal-400 hover:bg-slate-800/90 transition shadow-md group">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-lg">👶</div>
           <div>
-            <p id="outEventBadge" class="text-[10px] uppercase tracking-[0.3em] text-amber-300 font-semibold">The Wedding Of</p>
-            <h1 id="outTitle" class="font-serif-luxury text-3xl font-bold text-white mt-1">Raminianti & Aliadin</h1>
-            <p id="outDate" class="text-xs text-amber-200/80 mt-1">Senin, 23 November 2026 • Kota Baubau</p>
-          </div>
-
-          <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-xs italic text-stone-300 leading-relaxed font-serif-luxury">
-            "<span id="outStory">Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir memberikan doa restu...</span>"
-          </div>
-
-          <div id="outBankCard" class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 text-left space-y-1">
-            <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider">Tanda Kasih / Amplop Digital</span>
-            <div id="outBank" class="text-xs font-bold text-white">Bank BRI</div>
-            <div id="outRek" class="text-sm font-mono font-bold text-amber-300">488901053910537</div>
-            <div id="outOwner" class="text-[11px] text-stone-400">a.n. RAMINIANTI</div>
-            <button onclick="alert('Nomor rekening disalin!')" class="mt-2 w-full py-1.5 rounded-lg bg-amber-400 text-slate-950 font-bold text-xs">
-              Salin No. Rekening
-            </button>
+            <div class="text-xs font-bold text-white group-hover:text-teal-300 transition">Tasyakuran Aqiqah Bayi</div>
+            <div class="text-[10px] text-slate-400">Kelahiran Putra / Putri Tercinta</div>
           </div>
         </div>
+        <span class="text-slate-500 text-xs">➔</span>
+      </a>
 
-        <div class="p-3 text-center border-t border-slate-800/80 bg-black/60 text-[10px] text-slate-400">
-          mmdaf.my.id • Karya : G-Faizu_3.8 • Baubau
+      <!-- 5. Ulang Tahun -->
+      <a href="/ultah.html" class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-900/90 border border-pink-500/30 hover:border-pink-400 hover:bg-slate-800/90 transition shadow-md group">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-lg">🎂</div>
+          <div>
+            <div class="text-xs font-bold text-white group-hover:text-pink-300 transition">Ulang Tahun (Anak & Sweet 17)</div>
+            <div class="text-[10px] text-slate-400">Pesta Meriah & Ceria</div>
+          </div>
         </div>
-      </div>
-    </section>
-  </main>
+        <span class="text-slate-500 text-xs">➔</span>
+      </a>
+    </div>
 
-  <script>
-    var eventHeaders = {
-      nikah: { badge: "The Wedding Of", desc: "Pernikahan" },
-      khitan: { badge: "Walimatul Khitan", desc: "Khitanan / Sunatan" },
-      aqiqah: { badge: "Tasyakuran Aqiqah", desc: "Aqiqah" },
-      tasyakuran: { badge: "Syukuran & Doa Bersama", desc: "Tasyakuran" },
-      wisuda: { badge: "Graduation Celebration", desc: "Wisuda" },
-      ultah_anak: { badge: "Happy Birthday", desc: "Ulang Tahun Anak" },
-      ultah_dewasa: { badge: "Birthday Party", desc: "Ulang Tahun Dewasa" },
-      peresmian: { badge: "Grand Opening & Syukuran", desc: "Peresmian" },
-      halal: { badge: "Halal Bi Halal", desc: "Halal Bi Halal" },
-      bukber: { badge: "Buka Puasa Bersama", desc: "Buka Bersama" },
-      natal: { badge: "Merry Christmas & New Year", desc: "Natal & Tahun Baru" },
-      tiga_bulan: { badge: "Tasyakuran 3 / 7 Bulanan", desc: "Syukuran Kehamilan" },
-      mepandes: { badge: "Upacara Mepandes / Matatah", desc: "Mepandes Adat" }
-    };
+    <!-- Akses Khusus Pemilik (Studio Editor) -->
+    <div class="pt-2">
+      <a href="/editor.html" class="inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-amber-300 underline transition">
+        <span>⚙️ Masuk ke Dashboard Editor MMDAF</span>
+      </a>
+    </div>
 
-    function changeEventType() {
-      var val = document.getElementById('selectEventType').value;
-      var info = eventHeaders[val] || eventHeaders.nikah;
-      document.getElementById('outEventBadge').textContent = info.badge;
-      document.getElementById('badgeEventPreview').textContent = info.desc;
-      
-      if (val === 'khitan' || val === 'aqiqah' || val === 'ultah_anak') {
-        document.getElementById('lblNama1').textContent = "Nama Anak";
-        document.getElementById('lblNama2').textContent = "Putra/Putri dari (Orang Tua)";
-      } else if (val === 'wisuda') {
-        document.getElementById('lblNama1').textContent = "Nama Wisudawan & Gelar";
-        document.getElementById('lblNama2').textContent = "Universitas / Fakultas";
-      } else {
-        document.getElementById('lblNama1').textContent = "Nama Utama 1";
-        document.getElementById('lblNama2').textContent = "Nama Utama 2";
-      }
-      renderLive();
-    }
+  </div>
 
-    function changeTheme(theme) {
-      var phone = document.getElementById('phoneDevice');
-      var card = document.getElementById('outBankCard');
-      if (theme === 'gold') {
-        phone.style.borderColor = '#d97706';
-        card.className = 'bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 text-left space-y-1';
-      } else if (theme === 'emerald') {
-        phone.style.borderColor = '#059669';
-        card.className = 'bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-4 text-left space-y-1';
-      } else if (theme === 'rose') {
-        phone.style.borderColor = '#e11d48';
-        card.className = 'bg-rose-500/10 border border-rose-500/30 rounded-2xl p-4 text-left space-y-1';
-      }
-    }
+  <!-- Footer Resmi G-Faizu_3.8 -->
+  <footer class="w-full text-center py-6 text-[10px] text-slate-500 space-y-1">
+    <p>mmdaf.my.id • Karya : G-Faizu_3.8</p>
+    <p>Melayani Seluruh Kota Baubau, Buton, Muna & Sulawesi Tenggara</p>
+  </footer>
 
-    function renderLive() {
-      var n1 = document.getElementById('inNama1').value;
-      var n2 = document.getElementById('inNama2').value;
-      var val = document.getElementById('selectEventType').value;
-      
-      if (val === 'khitan' || val === 'aqiqah' || val === 'wisuda' || val === 'ultah_anak' || val === 'ultah_dewasa') {
-        document.getElementById('outTitle').textContent = n1;
-      } else {
-        document.getElementById('outTitle').textContent = n1.split(',')[0] + (n2 ? ' & ' + n2.split(',')[0] : '');
-      }
-
-      document.getElementById('outDate').textContent = document.getElementById('inDate').value + ' • ' + document.getElementById('inLoc').value;
-      document.getElementById('outBank').textContent = document.getElementById('inBank').value;
-      document.getElementById('outRek').textContent = document.getElementById('inRek').value;
-      document.getElementById('outOwner').textContent = document.getElementById('inOwner').value;
-    }
-
-    function publishInvitation() {
-      var url = window.location.origin + '/?to=Tamu+Undangan';
-      navigator.clipboard.writeText(url);
-      alert('Tautan undangan berhasil disalin!\nLink: ' + url + '\nKirimkan tautan ini kepada klien Anda.');
-    }
-  </script>
 </body>
 </html>
