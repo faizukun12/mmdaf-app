@@ -14,7 +14,7 @@
 </head>
 <body class="min-h-screen flex flex-col items-center justify-between p-4 sm:p-6 bg-radial-gradient">
   
-  <div class="w-full max-w-md mx-auto space-y-6 pt-4 text-center">
+  <div class="w-full max-w-md mx-auto space-y-6 pt-2 text-center">
     
     <!-- Profil & Brand Identity -->
     <div class="space-y-3">
@@ -25,95 +25,149 @@
       </div>
       <div>
         <h1 class="text-xl font-bold tracking-wider text-white">MMDAF <span class="text-amber-400 font-light">STUDIO</span></h1>
-        <p class="text-xs text-amber-200/90 font-medium mt-0.5">Jasa Pembuatan Undangan Digital Online • Kota Baubau</p>
-        <p class="text-[11px] text-slate-400 mt-1 max-w-xs mx-auto">Elegan, Praktis, Lengkap dengan Musik, Doa Restu & Amplop Digital.</p>
+        <p class="text-xs text-amber-200/90 font-medium mt-0.5">Jasa Undangan Digital Online • Kota Baubau & Sultra</p>
+        <p class="text-[11px] text-slate-400 mt-1 max-w-xs mx-auto">Elegan, Praktis, Lengkap dengan Musik, Peta Lokasi & Amplop Digital.</p>
       </div>
     </div>
 
-    <!-- Tombol WhatsApp Langsung (Call To Action) -->
-    <a href="https://wa.me/6281234567890?text=Halo%20Admin%20MMDAF,%20saya%20mau%20tanya%20jasa%20pembuatan%20undangan%20digital" target="_blank" class="block w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/20 hover:brightness-110 transition">
-      💬 Chat WhatsApp / Pesan Undangan
-    </a>
+    <!-- KOTAK KLAIM UNDANGAN GRATIS (SISTEM VERIFIKASI USERNAME TIKTOK & KUNCI G-Faizu_3.8) -->
+    <div class="bg-gradient-to-br from-amber-500/15 via-slate-900 to-slate-950 border border-amber-500/40 rounded-2xl p-4 text-left space-y-3 shadow-xl">
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-bold text-amber-300 uppercase tracking-wider">🎁 KLAIM UNDANGAN GRATIS (4 FOTO)</span>
+        <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30">Free Promo</span>
+      </div>
+      
+      <p class="text-[11px] text-slate-300 leading-relaxed">
+        Syarat klaim: Wajib follow akun TikTok resmi kami, lalu masukkan username TikTok Anda dan kode kunci di bawah ini:
+      </p>
+      
+      <!-- Tombol Langsung Buka Profil TikTok -->
+      <a href="https://www.tiktok.com/@mmdaf.studio.project" target="_blank" class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-black border border-slate-700 hover:border-amber-400 text-white font-bold text-xs transition">
+        <span>🎵 1. Klik di Sini & Tekan "Follow" @mmdaf.studio.project</span>
+      </a>
+
+      <!-- Form Verifikasi Dua Arah -->
+      <div class="space-y-2 pt-1 bg-black/40 p-3 rounded-xl border border-white/5">
+        <div>
+          <label class="block text-[10px] text-slate-300 font-medium mb-1">2. Masukkan Username Akun TikTok Anda:</label>
+          <input id="inputUserTiktok" type="text" placeholder="Contoh: @nama_akun_anda" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-amber-400" />
+        </div>
+
+        <div>
+          <label class="block text-[10px] text-amber-200 font-medium mb-1">3. Masukkan Kode Kunci (dari Bio TikTok):</label>
+          <div class="flex gap-2">
+            <input id="inputKeygen" type="text" placeholder="Contoh: G-Faizu_3.8" class="flex-1 bg-slate-950 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-amber-300 font-mono focus:outline-none focus:border-amber-400" />
+            <button onclick="verifySecretKeyAndUser()" class="px-4 py-1.5 rounded-lg bg-gradient-to-r from-amber-400 to-yellow-600 text-slate-950 font-bold text-xs hover:brightness-110 shadow">
+              Klaim Sekarang
+            </button>
+          </div>
+        </div>
+        
+        <p id="keyStatusMsg" class="text-[10px] hidden pt-1"></p>
+        <p class="text-[9px] text-slate-400 italic">
+          *Catatan: Sistem mendata username pemohon. Akun yang belum follow akan terdeteksi otomatis dan link undangan dapat ditangguhkan.
+        </p>
+      </div>
+    </div>
 
     <!-- KATALOG BIOLINK PILIHAN ACARA -->
-    <div class="space-y-3 text-left">
+    <div class="space-y-2.5 text-left">
       <div class="text-[11px] font-bold uppercase tracking-widest text-slate-400 px-1">Katalog Contoh Undangan:</div>
 
-      <!-- 1. Pernikahan -->
-      <a href="/undangan.html?to=Tamu+Undangan" class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-900/90 border border-amber-500/30 hover:border-amber-400 hover:bg-slate-800/90 transition shadow-md group">
+      <a href="/undangan.html?to=Tamu+Undangan" class="flex items-center justify-between p-3 rounded-2xl bg-slate-900/90 border border-amber-500/30 hover:border-amber-400 hover:bg-slate-800/90 transition shadow group">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-lg">💍</div>
+          <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-base">💍</div>
           <div>
-            <div class="text-xs font-bold text-white group-hover:text-amber-300 transition">Undangan Pernikahan (Wedding)</div>
+            <div class="text-xs font-bold text-white group-hover:text-amber-300 transition">Pernikahan (Wedding Luxury)</div>
             <div class="text-[10px] text-slate-400">Contoh: Raminianti & Aliadin</div>
           </div>
         </div>
         <span class="text-slate-500 text-xs">➔</span>
       </a>
 
-      <!-- 2. Khitanan -->
-      <a href="/khitan.html" class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-900/90 border border-emerald-500/30 hover:border-emerald-400 hover:bg-slate-800/90 transition shadow-md group">
+      <a href="/khitan.html" class="flex items-center justify-between p-3 rounded-2xl bg-slate-900/90 border border-emerald-500/30 hover:border-emerald-400 hover:bg-slate-800/90 transition shadow group">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-lg">✂️</div>
+          <div class="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-base">✂️</div>
           <div>
-            <div class="text-xs font-bold text-white group-hover:text-emerald-300 transition">Undangan Walimatul Khitan</div>
+            <div class="text-xs font-bold text-white group-hover:text-emerald-300 transition">Walimatul Khitan / Sunatan</div>
             <div class="text-[10px] text-slate-400">Nuansa Islami & Syukuran Anak</div>
           </div>
         </div>
         <span class="text-slate-500 text-xs">➔</span>
       </a>
 
-      <!-- 3. Wisuda -->
-      <a href="/wisuda.html" class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-900/90 border border-blue-500/30 hover:border-blue-400 hover:bg-slate-800/90 transition shadow-md group">
+      <a href="/wisuda.html" class="flex items-center justify-between p-3 rounded-2xl bg-slate-900/90 border border-blue-500/30 hover:border-blue-400 hover:bg-slate-800/90 transition shadow group">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-lg">🎓</div>
+          <div class="w-9 h-9 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-base">🎓</div>
           <div>
             <div class="text-xs font-bold text-white group-hover:text-blue-300 transition">Tasyakuran Wisuda & Kelulusan</div>
-            <div class="text-[10px] text-slate-400">Gelar Sarjana / Profesi</div>
+            <div class="text-[10px] text-slate-400">Sarjana / Unidayan Baubau</div>
           </div>
         </div>
         <span class="text-slate-500 text-xs">➔</span>
       </a>
 
-      <!-- 4. Aqiqah -->
-      <a href="/aqiqah.html" class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-900/90 border border-teal-500/30 hover:border-teal-400 hover:bg-slate-800/90 transition shadow-md group">
+      <a href="/aqiqah.html" class="flex items-center justify-between p-3 rounded-2xl bg-slate-900/90 border border-teal-500/30 hover:border-teal-400 hover:bg-slate-800/90 transition shadow group">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-lg">👶</div>
+          <div class="w-9 h-9 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-base">👶</div>
           <div>
             <div class="text-xs font-bold text-white group-hover:text-teal-300 transition">Tasyakuran Aqiqah Bayi</div>
-            <div class="text-[10px] text-slate-400">Kelahiran Putra / Putri Tercinta</div>
+            <div class="text-[10px] text-slate-400">Doa & Tanda Kasih Kelahiran</div>
           </div>
         </div>
         <span class="text-slate-500 text-xs">➔</span>
       </a>
 
-      <!-- 5. Ulang Tahun -->
-      <a href="/ultah.html" class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-900/90 border border-pink-500/30 hover:border-pink-400 hover:bg-slate-800/90 transition shadow-md group">
+      <a href="/ultah.html" class="flex items-center justify-between p-3 rounded-2xl bg-slate-900/90 border border-pink-500/30 hover:border-pink-400 hover:bg-slate-800/90 transition shadow group">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-lg">🎂</div>
+          <div class="w-9 h-9 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-base">🎂</div>
           <div>
-            <div class="text-xs font-bold text-white group-hover:text-pink-300 transition">Ulang Tahun (Anak & Sweet 17)</div>
-            <div class="text-[10px] text-slate-400">Pesta Meriah & Ceria</div>
+            <div class="text-xs font-bold text-white group-hover:text-pink-300 transition">Ulang Tahun (Anak & Dewasa)</div>
+            <div class="text-[10px] text-slate-400">Pesta Ceria & Menyenangkan</div>
           </div>
         </div>
         <span class="text-slate-500 text-xs">➔</span>
       </a>
     </div>
 
-    <!-- Akses Khusus Pemilik (Studio Editor) -->
-    <div class="pt-2">
+    <!-- Tombol Masuk Studio Editor Khusus Anda -->
+    <div class="pt-1">
       <a href="/editor.html" class="inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-amber-300 underline transition">
-        <span>⚙️ Masuk ke Dashboard Editor MMDAF</span>
+        <span>⚙️ Masuk ke Studio Editor MMDAF</span>
       </a>
     </div>
 
   </div>
 
-  <!-- Footer Resmi G-Faizu_3.8 -->
-  <footer class="w-full text-center py-6 text-[10px] text-slate-500 space-y-1">
+  <footer class="w-full text-center py-5 text-[10px] text-slate-500 space-y-1">
     <p>mmdaf.my.id • Karya : G-Faizu_3.8</p>
-    <p>Melayani Seluruh Kota Baubau, Buton, Muna & Sulawesi Tenggara</p>
+    <p>Melayani Kota Baubau, Buton, Muna & Seluruh Sulawesi Tenggara</p>
   </footer>
 
+  <script>
+    function verifySecretKeyAndUser() {
+      var user = document.getElementById('inputUserTiktok').value.trim();
+      var key = document.getElementById('inputKeygen').value.trim();
+      var msg = document.getElementById('keyStatusMsg');
+      msg.classList.remove('hidden');
+
+      if (!user) {
+        msg.className = 'text-[10px] text-rose-400 font-semibold';
+        msg.textContent = '⚠️ Mohon isi username TikTok Anda yang dipakai untuk follow terlebih dahulu.';
+        return;
+      }
+
+      if (key.toLowerCase() === 'g-faizu_3.8' || key.toLowerCase() === 'g_faizu_3.8') {
+        msg.className = 'text-[10px] text-emerald-400 font-bold';
+        msg.textContent = '✅ Verifikasi Akun ' + user + ' Berhasil! Mengalihkan ke formulir undangan gratis...';
+        setTimeout(function() {
+          window.location.href = '/editor.html?mode=free_unlocked&follower=' + encodeURIComponent(user);
+        }, 1200);
+      } else {
+        msg.className = 'text-[10px] text-rose-400 font-semibold';
+        msg.textContent = '❌ Kode kunci salah! Silakan cek kode kunci di bio profil TikTok @mmdaf.studio.project';
+      }
+    }
+  </script>
 </body>
 </html>
