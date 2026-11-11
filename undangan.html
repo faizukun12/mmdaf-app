@@ -3,122 +3,281 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Wedding of Raminianti, S.Ak & Aliadin — MMDAF</title>
+  <title>The Wedding of Raminianti, S.Ak & Aliadin — Royal Malige Buton Edition</title>
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; background-color: #0c0a09; color: #f5f5f4; overflow-x: hidden; }
+    body { font-family: 'Inter', sans-serif; background-color: #060504; color: #f5f5f4; overflow-x: hidden; }
+    .font-royal { font-family: 'Cinzel', serif; }
     .font-serif-luxury { font-family: 'Cormorant Garamond', Georgia, serif; }
-    @keyframes floatBtn { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
-    .animate-float { animation: floatBtn 2.8s ease-in-out infinite; }
+    
+    /* Partikel Cahaya Emas Melayang */
+    @keyframes floatParticle {
+      0% { transform: translateY(-10px) rotate(0deg); opacity: 0; }
+      50% { opacity: 0.8; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+    .particle {
+      position: fixed;
+      top: -20px;
+      pointer-events: none;
+      z-index: 15;
+      animation: floatParticle 8s linear infinite;
+    }
+
+    /* Bingkai Kubah Malige Mewah */
+    .arch-frame {
+      border-radius: 130px 130px 28px 28px;
+      border: 2px solid rgba(217, 119, 6, 0.45);
+      box-shadow: 0 15px 35px -10px rgba(217, 119, 6, 0.35);
+    }
+
+    /* Piringan Disc Musik Berputar */
+    @keyframes spinDisc {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .spin-music { animation: spinDisc 6s linear infinite; }
+
+    /* Latar Belakang Rumah Adat Buton Malige */
+    .bg-malige-pattern {
+      background-image: 
+        linear-gradient(to bottom, rgba(6, 5, 4, 0.88), rgba(14, 12, 10, 0.95)),
+        radial-gradient(circle at 50% 20%, rgba(217, 119, 6, 0.15), transparent 70%);
+    }
   </style>
 </head>
-<body class="min-h-screen flex justify-center bg-stone-950 text-stone-100">
+<body class="min-h-screen flex justify-center bg-[#040302] text-stone-100">
 
-  <div class="w-full max-w-md min-h-screen bg-[#12100e] relative flex flex-col shadow-2xl border-x border-amber-500/20">
+  <!-- Cahaya Partikel Emas Melayang -->
+  <div class="particle w-2 h-2 rounded-full bg-amber-400 blur-[1px]" style="left: 10%; animation-duration: 7s;"></div>
+  <div class="particle w-1.5 h-1.5 rounded-full bg-yellow-300 blur-[1px]" style="left: 48%; animation-duration: 9s; animation-delay: 2s;"></div>
+  <div class="particle w-2.5 h-2.5 rounded-full bg-amber-500 blur-[1px]" style="left: 82%; animation-duration: 8s; animation-delay: 3s;"></div>
 
-    <!-- SAMPUL DEPAN (#cover) -->
-    <div id="coverOverlay" class="fixed inset-0 max-w-md mx-auto z-30 flex flex-col justify-between p-6 text-center bg-stone-950 transition-all duration-700">
-      <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-stone-950 z-0"></div>
+  <!-- Piringan Musik Berputar -->
+  <button id="floatingMusicBtn" onclick="toggleMusic()" aria-label="Audio Control" class="fixed bottom-6 right-5 z-40 w-12 h-12 rounded-full bg-slate-950 border-2 border-amber-400 p-1 shadow-2xl flex items-center justify-center transition">
+    <div id="musicDiscInner" class="w-full h-full rounded-full bg-gradient-to-tr from-amber-600 via-amber-400 to-yellow-200 flex items-center justify-center text-slate-950 font-bold text-xs">
+      ♫
+    </div>
+  </button>
+
+  <div class="w-full max-w-md min-h-screen bg-malige-pattern relative flex flex-col shadow-2xl border-x border-amber-500/20">
+
+    <!-- BABAK 1: SAMPUL DEPAN (#cover) DENGAN SILUET RUMAH ADAT MALIGE -->
+    <div id="coverOverlay" class="fixed inset-0 max-w-md mx-auto z-30 flex flex-col justify-between p-6 text-center bg-[#080605] transition-all duration-700">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/85 via-black/60 to-[#080605] z-0"></div>
       
-      <div class="relative z-10 pt-8">
-        <p class="text-[11px] uppercase tracking-[0.3em] text-amber-300/90 font-medium">The Wedding Of</p>
-        <h1 class="font-serif-luxury text-4xl font-semibold text-white mt-1">Raminianti &amp; Aliadin</h1>
-        <p class="text-xs text-amber-200/80 mt-1.5">Senin, 23 November 2026 • Lahumoko</p>
+      <!-- Ornamen Puncak Malige -->
+      <div class="relative z-10 pt-6 space-y-2">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-[10px] text-amber-300 font-royal tracking-widest uppercase">
+          <span>👑 Royal Buton Edition</span>
+        </div>
+        <p class="font-royal text-[9px] uppercase tracking-[0.4em] text-amber-400/90 pt-1">The Wedding Celebration Of</p>
+        <h1 class="font-serif-luxury text-4xl font-bold text-white tracking-wide">Raminianti <span class="text-amber-400 font-light">&</span> Aliadin</h1>
+        <p class="text-xs text-amber-200/80">Senin, 23 November 2026 • Lahumoko & Baubau</p>
       </div>
 
-      <div class="relative z-10 space-y-4 pb-8">
-        <div class="bg-black/60 backdrop-blur-md border border-amber-400/30 rounded-2xl p-4 shadow-lg">
-          <p class="text-xs text-stone-300">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
-          <p id="guestNameLabel" class="text-base font-semibold text-amber-300 mt-1 break-words">Tamu Undangan</p>
-          <p class="text-[10px] text-stone-400 mt-1">Mohon maaf bila ada kesalahan penulisan nama/gelar</p>
+      <!-- Foto Pasangan Dalam Bingkai Kubah Malige -->
+      <div class="relative z-10 my-auto py-2">
+        <div class="w-48 h-64 mx-auto arch-frame overflow-hidden p-1 bg-gradient-to-b from-amber-500/40 via-amber-400/10 to-transparent">
+          <div class="w-full h-full arch-frame overflow-hidden bg-slate-900">
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAF8ARwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD+VaiiivtTxwooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA//9k=" class="w-full h-full object-cover" alt="Foto Pasangan" />
+          </div>
+        </div>
+      </div>
+
+      <div class="relative z-10 space-y-4 pb-6">
+        <div class="bg-black/65 backdrop-blur-md border border-amber-400/30 rounded-2xl p-4 shadow-2xl">
+          <p class="text-[11px] text-stone-300">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+          <p id="guestNameLabel" class="font-serif-luxury text-lg font-bold text-amber-300 mt-1">Tamu Undangan Terhormat</p>
+          <p class="text-[9px] text-stone-400 mt-0.5">Mohon maaf bila ada kesalahan penulisan nama/gelar</p>
         </div>
 
-        <button onclick="openInvitation()" class="w-full py-3.5 px-6 rounded-full font-semibold text-xs uppercase tracking-widest bg-gradient-to-r from-amber-300 via-amber-400 to-yellow-600 text-stone-950 shadow-lg shadow-amber-500/30 hover:brightness-110 transition animate-float">
+        <button onclick="openInvitation()" class="w-full py-3.5 px-6 rounded-full font-bold text-xs uppercase tracking-widest bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-600 text-stone-950 shadow-2xl hover:brightness-110 transition">
           ✉ Buka Undangan
         </button>
       </div>
     </div>
 
-    <!-- ISI UNDANGAN LENGKAP -->
-    <div class="flex-1 pb-16">
-      <div class="p-8 text-center border-b border-amber-500/20 bg-gradient-to-b from-amber-500/10 to-transparent">
-        <span class="text-[10px] uppercase tracking-[0.25em] text-amber-400 font-semibold">Walimatul 'Ursy</span>
-        <h2 class="font-serif-luxury text-3xl font-bold text-white mt-1">Raminianti &amp; Aliadin</h2>
-        <p class="text-xs text-amber-300/80 mt-1">Senin, 23 November 2026</p>
-      </div>
-
-      <div class="px-6 py-7 text-center border-b border-amber-500/15">
-        <div class="text-amber-400 text-xs tracking-widest uppercase font-semibold mb-2">Bismillahirrahmanirrahim</div>
-        <p class="text-xs leading-relaxed text-stone-300 italic font-serif-luxury text-sm">
-          "Di bawah langit Lahumoko, dua hati dan dua langkah akhirnya berpadu dalam sebuah ikrar suci. Kami belajar bahwa cinta bukan sekadar saling menatap, melainkan berjalan beriringan dalam terik maupun hujan, saling menguatkan dan merawat senyum hingga menua bersama."
+    <!-- ISI UNDANGAN LENGKAP 9 BABAK VIP -->
+    <div class="flex-1 pb-16 space-y-8">
+      
+      <!-- BABAK 2: AYAT SUCI AR-RUM 21 -->
+      <div class="p-8 text-center border-b border-amber-500/20 bg-gradient-to-b from-amber-500/10 to-transparent space-y-3">
+        <div class="font-royal text-[10px] uppercase tracking-[0.3em] text-amber-400">Ar-Rum : 21</div>
+        <p class="font-serif-luxury text-xs text-stone-300 italic leading-relaxed">
+          "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
         </p>
       </div>
 
-      <!-- Mempelai -->
-      <div class="px-6 py-8 text-center space-y-6 border-b border-amber-500/15">
-        <div class="bg-white/5 border border-amber-500/20 rounded-2xl p-5 space-y-2">
-          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-amber-400 to-amber-700 flex items-center justify-center text-stone-950 font-serif-luxury text-2xl font-bold mx-auto border-2 border-amber-300 shadow">R</div>
-          <h3 class="font-serif-luxury text-2xl font-semibold text-amber-300">Raminianti, S.Ak</h3>
-          <p class="text-xs text-stone-300">Mempelai Wanita — Keluarga Besar di Lahumoko</p>
-        </div>
-
-        <div class="font-serif-luxury text-3xl text-amber-400 italic">&amp;</div>
-
-        <div class="bg-white/5 border border-amber-500/20 rounded-2xl p-5 space-y-2">
-          <div class="w-16 h-16 rounded-full bg-gradient-to-br from-amber-400 to-amber-700 flex items-center justify-center text-stone-950 font-serif-luxury text-2xl font-bold mx-auto border-2 border-amber-300 shadow">A</div>
-          <h3 class="font-serif-luxury text-2xl font-semibold text-amber-300">Aliadin</h3>
-          <p class="text-xs text-stone-300">Mempelai Pria — Keluarga Besar di Lahumoko</p>
-        </div>
-      </div>
-
-      <!-- Jadwal Acara -->
-      <div class="px-6 py-8 text-center space-y-4 border-b border-amber-500/15">
-        <h3 class="font-serif-luxury text-2xl font-semibold text-white">Waktu &amp; Tempat</h3>
-        <div class="bg-white/5 border border-amber-500/20 rounded-2xl p-4 text-left space-y-2">
-          <div class="flex justify-between text-xs font-bold text-amber-300">
-            <span>Akad Nikah: 10.00 WIT</span>
-            <span>Resepsi: 14.00 - 17.00 WIT</span>
+      <!-- BABAK 3: PROFIL KEDUA MEMPELAI -->
+      <div class="px-6 text-center space-y-6">
+        <div class="font-royal text-[10px] uppercase tracking-[0.25em] text-amber-400">Mempelai Yang Berbahagia</div>
+        
+        <div class="bg-white/5 border border-amber-500/20 rounded-3xl p-6 space-y-3 shadow-lg">
+          <div class="w-20 h-20 mx-auto rounded-full p-1 bg-gradient-to-tr from-amber-400 to-yellow-600 shadow">
+            <div class="w-full h-full rounded-full bg-stone-950 flex items-center justify-center text-amber-300 font-serif-luxury text-2xl font-bold">R</div>
           </div>
-          <p class="text-xs text-white">Kediaman Mempelai, Lahumoko</p>
+          <h2 class="font-serif-luxury text-2xl font-bold text-amber-300">Raminianti, S.Ak</h2>
+          <p class="text-xs text-stone-300">Mempelai Wanita — Putri Tercinta dari Keluarga Besar di Lahumoko</p>
+        </div>
+
+        <div class="font-serif-luxury text-3xl text-amber-400 font-light">&</div>
+
+        <div class="bg-white/5 border border-amber-500/20 rounded-3xl p-6 space-y-3 shadow-lg">
+          <div class="w-20 h-20 mx-auto rounded-full p-1 bg-gradient-to-tr from-amber-400 to-yellow-600 shadow">
+            <div class="w-full h-full rounded-full bg-stone-950 flex items-center justify-center text-amber-300 font-serif-luxury text-2xl font-bold">A</div>
+          </div>
+          <h2 class="font-serif-luxury text-2xl font-bold text-amber-300">Aliadin</h2>
+          <p class="text-xs text-stone-300">Mempelai Pria — Putra Tercinta dari Keluarga Besar di Lahumoko</p>
         </div>
       </div>
 
-      <!-- Amplop Digital -->
-      <div class="px-6 py-8 text-center space-y-4">
-        <h3 class="font-serif-luxury text-2xl font-semibold text-white">Amplop Digital</h3>
-        <div class="bg-gradient-to-br from-amber-500/15 to-stone-900 border border-amber-500/30 rounded-2xl p-4 flex items-center justify-between text-left">
+      <!-- BABAK 4: HITUNG MUNDUR & GOOGLE CALENDAR -->
+      <div class="px-6 text-center space-y-4">
+        <div class="font-royal text-[10px] uppercase tracking-[0.25em] text-amber-400">Menuju Hari Bahagia</div>
+        <div class="grid grid-cols-4 gap-2">
+          <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl py-3">
+            <span id="cdDays" class="text-lg font-bold text-amber-300">12</span>
+            <span class="block text-[9px] uppercase text-stone-400">Hari</span>
+          </div>
+          <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl py-3">
+            <span id="cdHours" class="text-lg font-bold text-amber-300">04</span>
+            <span class="block text-[9px] uppercase text-stone-400">Jam</span>
+          </div>
+          <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl py-3">
+            <span id="cdMins" class="text-lg font-bold text-amber-300">30</span>
+            <span class="block text-[9px] uppercase text-stone-400">Menit</span>
+          </div>
+          <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl py-3">
+            <span id="cdSecs" class="text-lg font-bold text-amber-300">45</span>
+            <span class="block text-[9px] uppercase text-stone-400">Detik</span>
+          </div>
+        </div>
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Wedding+of+Raminianti+%26+Aliadin&dates=20261123T010000Z/20261123T080000Z&details=Pernikahan+Raminianti+dan+Aliadin+di+Lahumoko&location=Lahumoko" target="_blank" class="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-slate-900 border border-amber-500/30 text-xs text-amber-300 hover:bg-slate-800 transition">
+          <span>📅 Simpan Tanggal ke Google Calendar</span>
+        </a>
+      </div>
+
+      <!-- BABAK 5: JADWAL ACARA & GOOGLE MAPS -->
+      <div class="px-6 text-center space-y-4">
+        <div class="font-royal text-[10px] uppercase tracking-[0.25em] text-amber-400">Waktu & Tempat Acara</div>
+        <div class="bg-gradient-to-b from-amber-500/10 to-transparent border border-amber-500/30 rounded-3xl p-5 space-y-3">
+          <h3 class="font-serif-luxury text-2xl font-bold text-white">Senin, 23 November 2026</h3>
+          <div class="grid grid-cols-2 gap-3 text-left pt-2">
+            <div class="bg-black/40 p-3.5 rounded-2xl border border-white/5 space-y-1">
+              <span class="text-[10px] uppercase font-bold text-amber-300 block">Akad Nikah</span>
+              <span class="text-xs font-semibold text-white">10.00 WIT</span>
+              <span class="text-[10px] text-stone-400 block">Kediaman Mempelai, Lahumoko</span>
+            </div>
+            <div class="bg-black/40 p-3.5 rounded-2xl border border-white/5 space-y-1">
+              <span class="text-[10px] uppercase font-bold text-amber-300 block">Resepsi</span>
+              <span class="text-xs font-semibold text-white">14.00 - 17.00 WIT</span>
+              <span class="text-[10px] text-stone-400 block">Kediaman Mempelai, Lahumoko</span>
+            </div>
+          </div>
+          <a href="https://maps.google.com/?q=Lahumoko" target="_blank" class="inline-block mt-2 w-full py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-600 text-xs font-bold text-slate-950 hover:brightness-110 transition shadow">
+            📍 Buka Petunjuk Arah (Google Maps)
+          </a>
+        </div>
+      </div>
+
+      <!-- BABAK 6: KISAH CINTA 3 BABAK -->
+      <div class="px-6 text-center space-y-4">
+        <div class="font-royal text-[10px] uppercase tracking-[0.25em] text-amber-400">Kisah Cinta Kami</div>
+        <div class="space-y-3 text-left">
+          <div class="bg-white/5 border border-amber-500/20 rounded-2xl p-4 space-y-1">
+            <span class="text-xs font-bold text-amber-300">1. Awal Bertemu di Bawah Langit Lahumoko</span>
+            <p class="text-[11px] text-stone-300 leading-relaxed">Dua langkah dan dua hati dipertemukan dalam kesederhanaan, belajar saling mengenal dan menautkan rasa saling percaya.</p>
+          </div>
+          <div class="bg-white/5 border border-amber-500/20 rounded-2xl p-4 space-y-1">
+            <span class="text-xs font-bold text-amber-300">2. Mengikat Janji & Restu Keluarga</span>
+            <p class="text-[11px] text-stone-300 leading-relaxed">Cinta tumbuh dalam ketulusan. Dengan doa dan restu hangat kedua keluarga besar, kami memantapkan niat menyatukan takdir.</p>
+          </div>
+          <div class="bg-white/5 border border-amber-500/20 rounded-2xl p-4 space-y-1">
+            <span class="text-xs font-bold text-amber-300">3. Menuju Mahligai Pelaminan</span>
+            <p class="text-[11px] text-stone-300 leading-relaxed">Kini saat yang dinanti telah tiba pada Senin, 23 November 2026, kami mengikrarkan janji suci untuk saling menjaga hingga menua bersama.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- BABAK 7: AMPLOP DIGITAL -->
+      <div class="px-6 text-center space-y-4">
+        <div class="font-royal text-[10px] uppercase tracking-[0.25em] text-amber-400">Tanda Kasih (Amplop Digital)</div>
+        <div class="bg-gradient-to-br from-amber-500/15 via-black/40 to-black/80 border border-amber-500/30 rounded-3xl p-5 text-left flex items-center justify-between">
           <div>
             <div class="text-xs font-bold text-amber-300">Bank BRI</div>
-            <div id="rekNumber" class="text-sm font-mono font-bold text-white mt-0.5">488901053910537</div>
+            <div id="rekNumber" class="text-base font-mono font-bold text-white mt-0.5">488901053910537</div>
             <div class="text-[11px] text-stone-300">a.n. RAMINIANTI</div>
           </div>
-          <button onclick="copyRek()" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-400 text-stone-950 hover:brightness-110">
+          <button onclick="copyRek()" class="px-4 py-2 rounded-xl text-xs font-bold bg-amber-400 text-stone-950 hover:brightness-110 shadow">
             Salin No. Rek
           </button>
         </div>
-        <div class="pt-6 text-[10px] text-stone-500">
-          mmdaf.my.id • Karya : G-Faizu_3.8
+      </div>
+
+      <!-- BABAK 8: BUKU TAMU & RSVP INTERAKTIF -->
+      <div class="px-6 text-center space-y-4">
+        <div class="font-royal text-[10px] uppercase tracking-[0.25em] text-amber-400">Doa Restu & Kehadiran</div>
+        <div class="bg-white/5 border border-amber-500/20 rounded-3xl p-5 text-left space-y-3">
+          <div>
+            <label class="block text-[11px] text-stone-300 mb-1">Nama Anda:</label>
+            <input id="rsvpNama" type="text" placeholder="Tuliskan nama Anda..." class="w-full bg-black/60 border border-stone-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-400" />
+          </div>
+          <div>
+            <label class="block text-[11px] text-stone-300 mb-1">Konfirmasi Kehadiran:</label>
+            <select id="rsvpStatus" class="w-full bg-black/60 border border-stone-700 rounded-xl px-3 py-2 text-xs text-amber-300 focus:outline-none focus:border-amber-400">
+              <option value="Hadir">InsyaAllah Hadir</option>
+              <option value="Berhalangan">Maaf, Berhalangan Hadir</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[11px] text-stone-300 mb-1">Doa Restu & Ucapan:</label>
+            <textarea id="rsvpPesan" rows="2" placeholder="Tulis doa restu untuk kedua mempelai..." class="w-full bg-black/60 border border-stone-700 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-amber-400"></textarea>
+          </div>
+          <button onclick="kirimUcapan()" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-amber-400 to-yellow-600 text-slate-950 font-bold text-xs hover:brightness-110 transition shadow">
+            Kirim Doa Restu
+          </button>
+        </div>
+
+        <div id="boxUcapanList" class="space-y-2.5 text-left pt-2">
+          <div class="bg-black/40 border border-white/5 rounded-2xl p-3.5 space-y-1">
+            <div class="flex justify-between items-center">
+              <span class="text-xs font-bold text-amber-300">Keluarga Besar Wedabay Medical Center</span>
+              <span class="text-[9px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Hadir</span>
+            </div>
+            <p class="text-[11px] text-stone-300">Selamat untuk Raminianti, S.Ak & Aliadin! Semoga sakinah mawaddah warahmah hingga akhir hayat.</p>
+          </div>
         </div>
       </div>
+
+      <!-- BABAK 9: PENUTUP & FOOTER RESMI -->
+      <div class="pt-8 text-center border-t border-white/10 text-[10px] text-stone-500 space-y-1">
+        <p class="text-amber-400/80 font-semibold">MMDAF Royal Malige Edition • Kota Baubau</p>
+        <p>Karya : G-Faizu_3.8 • Ingin buat undangan seperti ini? Hubungi Kami</p>
+      </div>
+
     </div>
   </div>
 
   <script>
     function getGuest() {
       var p = new URLSearchParams(window.location.search);
-      return p.get('to') || 'Tamu Undangan';
+      return p.get('to') || 'Tamu Undangan Terhormat';
     }
 
     var audioCtx = null;
     var notes = [523.25, 659.25, 783.99, 1046.50, 783.99, 659.25];
     var step = 0;
     var timer = null;
+    var isPlaying = false;
 
     function playSound() {
       if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       if (audioCtx.state === 'suspended') audioCtx.resume();
+      isPlaying = true;
+      document.getElementById('musicDiscInner').classList.add('spin-music');
       timer = setInterval(function() {
         var osc = audioCtx.createOscillator();
         var gain = audioCtx.createGain();
@@ -134,6 +293,17 @@
       }, 850);
     }
 
+    function stopSound() {
+      if (timer) { clearInterval(timer); timer = null; }
+      isPlaying = false;
+      document.getElementById('musicDiscInner').classList.remove('spin-music');
+    }
+
+    function toggleMusic() {
+      if (isPlaying) stopSound();
+      else playSound();
+    }
+
     function openInvitation() {
       document.getElementById('coverOverlay').classList.add('opacity-0', 'pointer-events-none', '-translate-y-full');
       playSound();
@@ -145,8 +315,43 @@
       alert('Nomor rekening ' + r + ' berhasil disalin!');
     }
 
+    function kirimUcapan() {
+      var n = document.getElementById('rsvpNama').value.trim();
+      var s = document.getElementById('rsvpStatus').value;
+      var p = document.getElementById('rsvpPesan').value.trim();
+      if (!n) { alert('Silakan tulis nama Anda.'); return; }
+      if (!p) p = 'Selamat menempuh hidup baru!';
+
+      var box = document.getElementById('boxUcapanList');
+      var item = document.createElement('div');
+      item.className = 'bg-black/40 border border-white/5 rounded-2xl p-3.5 space-y-1';
+      var badge = s === 'Hadir' ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' : 'bg-rose-500/20 text-rose-300 border-rose-500/30';
+      item.innerHTML = '<div class="flex justify-between items-center"><span class="text-xs font-bold text-amber-300">' + n + '</span><span class="text-[9px] px-2 py-0.5 rounded-full border ' + badge + '">' + s + '</span></div><p class="text-[11px] text-stone-300">' + p + '</p>';
+      box.prepend(item);
+      document.getElementById('rsvpNama').value = '';
+      document.getElementById('rsvpPesan').value = '';
+      alert('Doa restu Anda berhasil dikirim!');
+    }
+
+    function updateCountdown() {
+      var target = new Date(2026, 10, 23, 10, 0, 0).getTime();
+      var now = new Date().getTime();
+      var diff = target - now;
+      if (diff < 0) diff = 12 * 86400000;
+      var d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      var h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      var m = Math.floor((diff / 1000 / 60) % 60);
+      var s = Math.floor((diff / 1000) % 60);
+      document.getElementById('cdDays').textContent = String(d).padStart(2, '0');
+      document.getElementById('cdHours').textContent = String(h).padStart(2, '0');
+      document.getElementById('cdMins').textContent = String(m).padStart(2, '0');
+      document.getElementById('cdSecs').textContent = String(s).padStart(2, '0');
+    }
+
     window.addEventListener('DOMContentLoaded', function() {
       document.getElementById('guestNameLabel').textContent = getGuest();
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
     });
   </script>
 </body>
