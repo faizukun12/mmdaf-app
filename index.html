@@ -13,6 +13,7 @@
   </style>
 </head>
 <body class="min-h-screen flex flex-col bg-slate-950 text-slate-100">
+  <!-- Header Studio -->
   <header class="sticky top-0 z-30 border-b border-amber-500/20 bg-slate-950/90 backdrop-blur-md px-4 py-3">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <div class="flex items-center gap-3">
@@ -22,107 +23,153 @@
           <p class="text-[10px] text-slate-400">Penerbit: mmdaf.my.id • Karya : G-Faizu_3.8</p>
         </div>
       </div>
-      <button onclick="publishInvitation()" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-gradient-to-r from-amber-400 to-yellow-600 text-slate-950 hover:brightness-110 shadow">
+      <button onclick="publishInvitation()" class="px-4 py-2 rounded-xl text-xs font-semibold bg-gradient-to-r from-amber-400 to-yellow-600 text-slate-950 hover:brightness-110 shadow">
         Publikasikan & Salin Link
       </button>
     </div>
   </header>
 
+  <!-- Main Content -->
   <main class="flex-1 max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-5 p-4 items-start">
-    <!-- PANEL KIRI: EDITOR LENGKAP -->
-    <section class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4 shadow-xl">
-      <div class="border-b border-slate-800 pb-3">
-        <h2 class="text-sm font-bold uppercase tracking-wider text-amber-400">Pengaturan Undangan Klien</h2>
-        <p class="text-xs text-slate-400 mt-0.5">Ubah data di bawah, tampilan undangan di sebelah kanan langsung berubah otomatis.</p>
+    
+    <!-- LEFT PANEL: FULL CONTROLLER & LAYOUT EDITOR -->
+    <section class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-5 shadow-xl">
+      
+      <!-- Pilihan Layout Tema Warna -->
+      <div class="border-b border-slate-800 pb-4 space-y-2">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-amber-400">1. Pilihan Layout & Tema Warna</h3>
+        <p class="text-[11px] text-slate-400">Pilih tema visual yang akan langsung mengubah seluruh nuansa undangan klien.</p>
+        <div class="grid grid-cols-3 gap-3 pt-1">
+          <button type="button" onclick="changeTheme('gold')" class="p-3 rounded-xl border-2 border-amber-400 bg-slate-950 text-left transition">
+            <span class="w-5 h-5 rounded-full bg-gradient-to-br from-amber-300 to-amber-600 block mb-1.5 shadow"></span>
+            <div class="text-xs font-bold text-white">Gold Luxury</div>
+            <div class="text-[10px] text-slate-400">Klasik Mewah</div>
+          </button>
+          <button type="button" onclick="changeTheme('emerald')" class="p-3 rounded-xl border border-slate-700 bg-slate-950 text-left transition hover:border-emerald-400">
+            <span class="w-5 h-5 rounded-full bg-gradient-to-br from-emerald-400 to-teal-700 block mb-1.5 shadow"></span>
+            <div class="text-xs font-bold text-white">Emerald Green</div>
+            <div class="text-[10px] text-slate-400">Nuansa Asri</div>
+          </button>
+          <button type="button" onclick="changeTheme('rose')" class="p-3 rounded-xl border border-slate-700 bg-slate-950 text-left transition hover:border-pink-400">
+            <span class="w-5 h-5 rounded-full bg-gradient-to-br from-rose-400 to-pink-700 block mb-1.5 shadow"></span>
+            <div class="text-xs font-bold text-white">Romantic Rose</div>
+            <div class="text-[10px] text-slate-400">Lembut Romantis</div>
+          </button>
+        </div>
       </div>
 
-      <!-- Mempelai -->
-      <div class="space-y-3">
-        <h3 class="text-xs font-semibold text-amber-300 uppercase">1. Data Mempelai</h3>
+      <!-- Upload Foto & Musik -->
+      <div class="border-b border-slate-800 pb-4 space-y-3">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-amber-400">2. Foto Sampul & Musik Latar</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div>
-            <label class="block text-[11px] text-slate-400 mb-1">Nama Mempelai Wanita</label>
-            <input id="inBride" type="text" value="Raminianti, S.Ak" oninput="renderLive()" class="w-full rounded bg-slate-950 border border-slate-700 px-3 py-1.5 text-xs text-white" />
+          <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-2">
+            <label class="block text-[11px] text-slate-300 font-medium">Ganti Foto Sampul Pasangan</label>
+            <input type="file" accept="image/*" onchange="uploadCoverPhoto(event)" class="w-full text-xs text-slate-400 file:mr-2 file:py-1 file:px-2.5 file:rounded-lg file:border-0 file:text-[11px] file:font-semibold file:bg-amber-500/20 file:text-amber-300 hover:file:bg-amber-500/30" />
           </div>
-          <div>
-            <label class="block text-[11px] text-slate-400 mb-1">Nama Mempelai Pria</label>
-            <input id="inGroom" type="text" value="Aliadin" oninput="renderLive()" class="w-full rounded bg-slate-950 border border-slate-700 px-3 py-1.5 text-xs text-white" />
+          <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-2">
+            <label class="block text-[11px] text-slate-300 font-medium">Musik Latar</label>
+            <div class="flex items-center justify-between pt-0.5">
+              <span id="musicStatusText" class="text-xs text-amber-300">♫ Instrumental Romantis</span>
+              <button type="button" onclick="toggleAudioPreview()" id="btnPlayMusic" class="px-3 py-1 rounded bg-slate-800 hover:bg-slate-700 text-xs text-amber-300 border border-slate-700">
+                Putar Musik
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Waktu & Tempat -->
-      <div class="space-y-3 pt-2 border-t border-slate-800">
-        <h3 class="text-xs font-semibold text-amber-300 uppercase">2. Jadwal & Lokasi</h3>
+      <!-- Mempelai & Acara -->
+      <div class="border-b border-slate-800 pb-4 space-y-3">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-amber-400">3. Data Pasangan & Acara</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[11px] text-slate-400 mb-1">Mempelai Wanita</label>
+            <input id="inBride" type="text" value="Raminianti, S.Ak" oninput="renderLive()" class="w-full rounded bg-slate-950 border border-slate-700 px-3 py-1.5 text-xs text-white" />
+          </div>
+          <div>
+            <label class="block text-[11px] text-slate-400 mb-1">Mempelai Pria</label>
+            <input id="inGroom" type="text" value="Aliadin" oninput="renderLive()" class="w-full rounded bg-slate-950 border border-slate-700 px-3 py-1.5 text-xs text-white" />
+          </div>
+        </div>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div>
-            <label class="block text-[11px] text-slate-400 mb-1">Tanggal Pernikahan</label>
+            <label class="block text-[11px] text-slate-400 mb-1">Hari & Tanggal</label>
             <input id="inDate" type="text" value="Senin, 23 November 2026" oninput="renderLive()" class="w-full rounded bg-slate-950 border border-slate-700 px-3 py-1.5 text-xs text-white" />
           </div>
           <div>
-            <label class="block text-[11px] text-slate-400 mb-1">Jam Akad & Resepsi</label>
+            <label class="block text-[11px] text-slate-400 mb-1">Waktu Acara</label>
             <input id="inTime" type="text" value="10.00 WIT - Selesai" oninput="renderLive()" class="w-full rounded bg-slate-950 border border-slate-700 px-3 py-1.5 text-xs text-white" />
           </div>
           <div>
-            <label class="block text-[11px] text-slate-400 mb-1">Lokasi Acara</label>
+            <label class="block text-[11px] text-slate-400 mb-1">Lokasi Gedung / Kota</label>
             <input id="inLoc" type="text" value="Lahumoko" oninput="renderLive()" class="w-full rounded bg-slate-950 border border-slate-700 px-3 py-1.5 text-xs text-white" />
           </div>
         </div>
       </div>
 
-      <!-- Amplop Digital -->
-      <div class="space-y-3 pt-2 border-t border-slate-800">
-        <h3 class="text-xs font-semibold text-amber-300 uppercase">3. Rekening Amplop Klien</h3>
+      <!-- Amplop Digital Klien Fleksibel -->
+      <div class="border-b border-slate-800 pb-4 space-y-3">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-amber-400">4. Nomor Rekening Klien (Bisa Diganti Tiap Klien)</h3>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div>
             <label class="block text-[11px] text-slate-400 mb-1">Nama Bank / E-Wallet</label>
             <input id="inBank" type="text" value="Bank BRI" oninput="renderLive()" class="w-full rounded bg-slate-950 border border-slate-700 px-3 py-1.5 text-xs text-white" />
           </div>
           <div>
-            <label class="block text-[11px] text-slate-400 mb-1">Nomor Rekening</label>
+            <label class="block text-[11px] text-slate-400 mb-1">Nomor Rekening Klien</label>
             <input id="inRek" type="text" value="488901053910537" oninput="renderLive()" class="w-full rounded bg-slate-950 border border-slate-700 px-3 py-1.5 text-xs text-amber-300 font-mono" />
           </div>
           <div>
-            <label class="block text-[11px] text-slate-400 mb-1">Atas Nama Pemilik</label>
+            <label class="block text-[11px] text-slate-400 mb-1">Nama Pemilik Rekening</label>
             <input id="inOwner" type="text" value="a.n. RAMINIANTI" oninput="renderLive()" class="w-full rounded bg-slate-950 border border-slate-700 px-3 py-1.5 text-xs text-white" />
           </div>
         </div>
       </div>
 
       <!-- Asisten AI -->
-      <div class="pt-2 border-t border-slate-800 space-y-2">
+      <div class="space-y-2">
         <div class="flex items-center justify-between">
-          <h3 class="text-xs font-semibold text-amber-300 uppercase">4. Asisten AI Copywriter</h3>
-          <button type="button" onclick="generateAiText()" class="px-2.5 py-1 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[11px]">✨ Buat Kisah Romantis Otomatis</button>
+          <h3 class="text-xs font-bold uppercase tracking-wider text-amber-400">5. Narasi Kisah Cinta (AI Generator)</h3>
+          <button type="button" onclick="generateAiText()" class="px-3 py-1.5 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-semibold hover:bg-amber-500/30">✨ Ganti Kata Puitis AI</button>
         </div>
         <textarea id="inStory" rows="3" oninput="renderLive()" class="w-full rounded bg-slate-950 border border-slate-700 p-2.5 text-xs text-slate-200">Di bawah langit Lahumoko, dua hati dan dua langkah akhirnya berpadu dalam sebuah ikrar suci. Kami belajar bahwa cinta bukan sekadar saling menatap, melainkan berjalan beriringan dalam terik maupun hujan, saling menguatkan dan merawat senyum hingga menua bersama.</textarea>
       </div>
+
     </section>
 
-    <!-- PANEL KANAN: LIVE SIMULASI LAYAR HP -->
+    <!-- RIGHT PANEL: SIMULASI PREVIEW HP SULTAN -->
     <section class="lg:col-span-5 flex flex-col items-center">
-      <div class="w-full max-w-[380px] bg-[#12100e] border-4 border-slate-800 rounded-[36px] shadow-2xl overflow-hidden relative min-h-[640px] flex flex-col">
-        <div class="bg-black/80 px-4 py-2 border-b border-amber-500/20 text-center text-[10px] text-amber-300 font-mono">
-          PREVIEW UNDANGAN LANGSUNG
+      <div id="phoneDevice" class="w-full max-w-[380px] bg-[#12100e] border-4 border-slate-800 rounded-[38px] shadow-2xl overflow-hidden relative min-h-[670px] flex flex-col transition-all duration-500">
+        
+        <!-- Bar Status HP -->
+        <div class="bg-black/80 px-5 py-2 border-b border-white/5 flex items-center justify-between text-[10px] text-amber-300 font-mono">
+          <span>MMDAF PREVIEW</span>
+          <span id="activeThemeBadge" class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">Theme: Gold</span>
         </div>
 
-        <div class="p-6 text-center space-y-5 flex-1">
+        <div class="p-6 text-center space-y-5 flex-1 relative">
+          <!-- Sampul Foto -->
+          <div id="coverBox" class="w-full h-44 rounded-2xl bg-slate-800 overflow-hidden relative border border-white/10 shadow-lg">
+            <img id="outCoverImg" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAF8ARwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD+VaiiivtTxwooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA//9k=" class="w-full h-full object-cover" alt="Foto Pasangan" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            <span class="absolute bottom-2 left-3 text-[10px] text-amber-200 font-semibold uppercase tracking-wider">The Wedding Of</span>
+          </div>
+
           <div>
-            <p class="text-[10px] uppercase tracking-[0.25em] text-amber-400">The Wedding Of</p>
-            <h1 id="outTitle" class="font-serif-luxury text-3xl font-bold text-white mt-1">Raminianti & Aliadin</h1>
+            <h1 id="outTitle" class="font-serif-luxury text-3xl font-bold text-white tracking-wide">Raminianti & Aliadin</h1>
             <p id="outDate" class="text-xs text-amber-200/80 mt-1">Senin, 23 November 2026 • Lahumoko</p>
           </div>
 
-          <div class="bg-white/5 border border-amber-500/20 rounded-2xl p-4 text-xs italic text-stone-300 leading-relaxed font-serif-luxury">
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-xs italic text-stone-300 leading-relaxed font-serif-luxury">
             "<span id="outStory">Di bawah langit Lahumoko, dua hati dan dua langkah akhirnya berpadu dalam sebuah ikrar suci...</span>"
           </div>
 
-          <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 text-left space-y-1">
+          <div id="outBankCard" class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 text-left space-y-1">
             <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider">Amplop Digital (Tanda Kasih)</span>
             <div id="outBank" class="text-xs font-bold text-white">Bank BRI</div>
             <div id="outRek" class="text-sm font-mono font-bold text-amber-300">488901053910537</div>
             <div id="outOwner" class="text-[11px] text-stone-400">a.n. RAMINIANTI</div>
-            <button onclick="alert('Nomor rekening disalin!')" class="mt-2 w-full py-1.5 rounded bg-amber-400 text-slate-950 font-bold text-xs">
+            <button onclick="copyRekeningLive()" class="mt-2 w-full py-1.5 rounded-lg bg-amber-400 text-slate-950 font-bold text-xs hover:brightness-110">
               Salin No. Rekening
             </button>
           </div>
@@ -133,9 +180,47 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <script>
+    var currentTheme = 'gold';
+
+    function changeTheme(theme) {
+      currentTheme = theme;
+      var phone = document.getElementById('phoneDevice');
+      var badge = document.getElementById('activeThemeBadge');
+      var card = document.getElementById('outBankCard');
+
+      if (theme === 'gold') {
+        phone.style.borderColor = '#d97706';
+        badge.textContent = 'Theme: Gold';
+        badge.className = 'px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30';
+        card.className = 'bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 text-left space-y-1';
+      } else if (theme === 'emerald') {
+        phone.style.borderColor = '#059669';
+        badge.textContent = 'Theme: Emerald';
+        badge.className = 'px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+        card.className = 'bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-4 text-left space-y-1';
+      } else if (theme === 'rose') {
+        phone.style.borderColor = '#e11d48';
+        badge.textContent = 'Theme: Rose';
+        badge.className = 'px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30';
+        card.className = 'bg-rose-500/10 border border-rose-500/30 rounded-2xl p-4 text-left space-y-1';
+      }
+    }
+
+    function uploadCoverPhoto(event) {
+      var file = event.target.files[0];
+      if (file) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById('outCoverImg').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
     function renderLive() {
       var bride = document.getElementById('inBride').value;
       var groom = document.getElementById('inGroom').value;
@@ -158,10 +243,48 @@
       renderLive();
     }
 
+    function copyRekeningLive() {
+      var rek = document.getElementById('outRek').textContent.trim();
+      navigator.clipboard.writeText(rek);
+      alert('Nomor rekening ' + rek + ' berhasil disalin!');
+    }
+
     function publishInvitation() {
       var url = window.location.origin + '/?to=Tamu+Undangan';
       navigator.clipboard.writeText(url);
       alert('Tautan undangan berhasil disalin!\nLink: ' + url + '\nKirimkan tautan ini kepada klien Anda.');
+    }
+
+    var audioCtx = null;
+    var isPlaying = false;
+    var audioInterval = null;
+    var notes = [523.25, 659.25, 783.99, 1046.50, 783.99, 659.25];
+    var step = 0;
+
+    function toggleAudioPreview() {
+      if (isPlaying) {
+        clearInterval(audioInterval);
+        isPlaying = false;
+        document.getElementById('btnPlayMusic').textContent = 'Putar Musik';
+      } else {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        isPlaying = true;
+        document.getElementById('btnPlayMusic').textContent = 'Jeda Musik';
+        audioInterval = setInterval(function() {
+          var osc = audioCtx.createOscillator();
+          var gain = audioCtx.createGain();
+          osc.frequency.setValueAtTime(notes[step % notes.length], audioCtx.currentTime);
+          step++;
+          gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.04, audioCtx.currentTime + 0.05);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.7);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.75);
+        }, 800);
+      }
     }
   </script>
 </body>
