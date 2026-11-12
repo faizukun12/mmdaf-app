@@ -5,6 +5,8 @@ import {
 
 const TIKTOK_SVG_INLINE = `<svg style="width:13px;height:13px;vertical-align:-2px;margin-right:4px;fill:currentColor;" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1Z"/></svg>`;
 
+const WHATSAPP_SVG_INLINE = `<svg style="width:14px;height:14px;vertical-align:-2px;margin-right:4px;fill:currentColor;" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.16 7.29C8.94 7.29 8.58 7.37 8.28 7.7C7.99 8.02 7.17 8.79 7.17 10.35C7.17 11.91 8.31 13.42 8.47 13.63C8.63 13.84 10.66 16.97 13.77 18.31C14.51 18.63 15.09 18.82 15.54 18.96C16.28 19.2 16.95 19.16 17.48 19.08C18.07 19 19.3 18.33 19.56 17.59C19.82 16.85 19.82 16.22 19.74 16.08C19.66 15.94 19.44 15.86 19.12 15.7C18.8 15.54 17.22 14.76 16.93 14.65C16.64 14.54 16.43 14.49 16.22 14.81C16.01 15.13 15.4 15.86 15.21 16.08C15.02 16.3 14.83 16.33 14.51 16.17C14.19 16.01 13.16 15.67 11.94 14.58C10.98 13.72 10.33 12.67 10.14 12.35C9.95 12.03 10.12 11.85 10.28 11.69C10.42 11.55 10.6 11.32 10.76 11.13C10.92 10.94 10.97 10.81 11.08 10.6C11.19 10.39 11.13 10.2 11.05 10.04C10.97 9.88 10.35 8.35 10.1 7.73C9.84 7.14 9.58 7.22 9.39 7.21C9.21 7.2 9.01 7.29 8.81 7.29L9.16 7.29Z"/></svg>`;
+
 export function generateStandaloneHtml(
   config: InvitationConfig,
   guestName = config.defaultGuestName
@@ -1035,6 +1037,54 @@ export function generateStandaloneHtml(
       filter: brightness(1.15);
       transform: translateY(-1px);
     }
+    .footer-contacts-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 10px;
+      width: 100%;
+    }
+    .btn-contact-capsule {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      font-family: 'Averia Serif Libre', serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+    }
+    .btn-contact-wa {
+      background: linear-gradient(135deg, #1b1610 0%, #2b2214 50%, #15110a 100%);
+      color: #ffd700 !important;
+      border: 1px solid rgba(212, 175, 55, 0.65);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 215, 0, 0.25);
+    }
+    .btn-contact-wa:hover {
+      background: linear-gradient(135deg, #b88c42 0%, #d4af37 50%, #9a722c 100%);
+      color: #0c0a08 !important;
+      border-color: #ffd700;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);
+    }
+    .btn-contact-tiktok {
+      background: #090705;
+      color: #f5e3b3 !important;
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(212, 175, 55, 0.15);
+    }
+    .btn-contact-tiktok:hover {
+      background: linear-gradient(135deg, #1f1811 0%, #2e2417 50%, #17120a 100%);
+      color: #ffd700 !important;
+      border-color: #ffd700;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
+    }
   </style>
 </head>
 <body>
@@ -1261,10 +1311,17 @@ export function generateStandaloneHtml(
       <p style="font-size: 14px;">Terimakasih Atas Doa &amp; Restu Bapak/Ibu/Saudara/i</p>
       <div class="mmdaf-footer dashboard-black-gold">
         <strong>${footerBrandTitle}</strong>
-        <p style="margin: 6px 0 8px; font-size: 11px; color: #e7dac6;">Karya : G-Faizu_3.8</p>
-        <a href="https://wa.me/6281234567890?text=Halo%20MMDAF%20Studio,%20saya%20tertarik%20membuat%20undangan%20digital%20seperti%20Raminianti%20%26%20Aliadin" target="_blank" rel="noopener noreferrer" class="btn-wa-footer">
-          💬 Ingin buat undangan seperti ini? Hubungi Kami
-        </a>
+        <p style="margin: 6px 0 8px; font-size: 11px; color: #e7dac6;">Karya : G-Faizu_3.8 • Ingin buat undangan seperti ini? Hubungi Kami</p>
+        <div class="footer-contacts-wrap">
+          <a href="https://wa.me/6281119127082?text=Halo%20MMDAF%20Studio%20(G-Faizu_3.8)%2C%20saya%20tertarik%20ingin%20membuat%20undangan%20digital%20seperti%20ini." target="_blank" rel="noopener noreferrer" class="btn-contact-capsule btn-contact-wa">
+            ${WHATSAPP_SVG_INLINE}
+            <span>WhatsApp: 0811-1912-7082</span>
+          </a>
+          <a href="https://www.tiktok.com/@mmdaf.studio.project" target="_blank" rel="noopener noreferrer" class="btn-contact-capsule btn-contact-tiktok">
+            ${TIKTOK_SVG_INLINE}
+            <span>TikTok: @mmdaf.studio.project</span>
+          </a>
+        </div>
       </div>
     </section>
   </div>
@@ -1981,7 +2038,27 @@ export function generateMaligeWeddingHtml(
           </div>
         </div>
         <p class="text-amber-400 font-semibold tracking-wider">MMDAF Royal Malige Edition • Kota Baubau</p>
-        <p>Karya : G-Faizu_3.8 • Edisi VIP Hitam Emas</p>
+        <p>Karya : G-Faizu_3.8 • Ingin buat undangan seperti ini? Hubungi Kami</p>
+        <div class="flex flex-col gap-2 max-w-[280px] mx-auto pt-2">
+          <a
+            href="https://wa.me/6281119127082?text=Halo%20MMDAF%20Studio%20(G-Faizu_3.8)%2C%20saya%20tertarik%20ingin%20membuat%20undangan%20digital%20seperti%20ini."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full text-[11px] font-bold font-averia bg-gradient-to-r from-[#1b1610] via-[#292015] to-[#15110a] text-[#ffd700] hover:text-[#0c0a08] hover:from-[#b88c42] hover:via-[#d4af37] hover:to-[#9a722c] border border-[#d4af37]/70 hover:border-[#ffd700] shadow-md transition-all whitespace-nowrap"
+          >
+            ${WHATSAPP_SVG_INLINE}
+            <span>WhatsApp: 0811-1912-7082</span>
+          </a>
+          <a
+            href="https://www.tiktok.com/@mmdaf.studio.project"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full text-[11px] font-bold font-averia bg-[#090705] text-[#f5e3b3] hover:text-[#ffd700] hover:bg-[#1a140d] border border-[#d4af37]/45 hover:border-[#ffd700] shadow-md transition-all whitespace-nowrap"
+          >
+            ${TIKTOK_SVG_INLINE}
+            <span>TikTok: @mmdaf.studio.project</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>

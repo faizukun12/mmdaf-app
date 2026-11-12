@@ -439,13 +439,38 @@ export const GiftAndRsvpSection: React.FC<GiftAndRsvpSectionProps> = ({
             Terimakasih Atas Doa &amp; Restu Bapak/Ibu/Saudara/i
           </p>
           {config.footerBrandTitle && (
-            <div className="dashboard-black-gold rounded-2xl px-5 py-3 text-[10.5px] text-white/90 space-y-0.5 font-playfair">
-              <p className="text-[#f5e3b3] font-semibold tracking-wider">
+            <div className="dashboard-black-gold rounded-2xl px-5 py-4 text-[10.5px] text-white/90 space-y-2 font-playfair max-w-[340px] w-full">
+              <p className="text-[#f5e3b3] font-semibold tracking-wider text-xs">
                 {config.footerBrandTitle}
               </p>
               {config.footerBrandSubtitle && (
-                <p className="text-stone-300">{config.footerBrandSubtitle}</p>
+                <p className="text-stone-300 text-[11px]">{config.footerBrandSubtitle}</p>
               )}
+              {/* Dua Tombol Kontak Interaktif Kapsul Hitam & Emas */}
+              <div className="flex flex-col gap-2 pt-2 border-t border-[#d4af37]/30 w-full">
+                <a
+                  href="https://wa.me/6281119127082?text=Halo%20MMDAF%20Studio%20(G-Faizu_3.8)%2C%20saya%20tertarik%20ingin%20membuat%20undangan%20digital%20seperti%20ini."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full text-[11px] font-bold font-averia bg-gradient-to-r from-[#1b1610] via-[#292015] to-[#15110a] text-[#ffd700] hover:from-[#b88c42] hover:via-[#d4af37] hover:to-[#9a722c] hover:text-[#0c0a08] border border-[#d4af37]/70 hover:border-[#ffd700] shadow-md hover:shadow-[#d4af37]/35 transition-all transform hover:-translate-y-0.5 whitespace-nowrap"
+                >
+                  <svg className="w-3.5 h-3.5 shrink-0 fill-currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.16 7.29C8.94 7.29 8.58 7.37 8.28 7.7C7.99 8.02 7.17 8.79 7.17 10.35C7.17 11.91 8.31 13.42 8.47 13.63C8.63 13.84 10.66 16.97 13.77 18.31C14.51 18.63 15.09 18.82 15.54 18.96C16.28 19.2 16.95 19.16 17.48 19.08C18.07 19 19.3 18.33 19.56 17.59C19.82 16.85 19.82 16.22 19.74 16.08C19.66 15.94 19.44 15.86 19.12 15.7C18.8 15.54 17.22 14.76 16.93 14.65C16.64 14.54 16.43 14.49 16.22 14.81C16.01 15.13 15.4 15.86 15.21 16.08C15.02 16.3 14.83 16.33 14.51 16.17C14.19 16.01 13.16 15.67 11.94 14.58C10.98 13.72 10.33 12.67 10.14 12.35C9.95 12.03 10.12 11.85 10.28 11.69C10.42 11.55 10.6 11.32 10.76 11.13C10.92 10.94 10.97 10.81 11.08 10.6C11.19 10.39 11.13 10.2 11.05 10.04C10.97 9.88 10.35 8.35 10.1 7.73C9.84 7.14 9.58 7.22 9.39 7.21C9.21 7.2 9.01 7.29 8.81 7.29L9.16 7.29Z" />
+                  </svg>
+                  <span>WhatsApp: 0811-1912-7082</span>
+                </a>
+                <a
+                  href="https://www.tiktok.com/@mmdaf.studio.project"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full text-[11px] font-bold font-averia bg-[#090705] text-[#f5e3b3] hover:text-[#ffd700] hover:bg-[#1a140d] border border-[#d4af37]/45 hover:border-[#ffd700] shadow-md hover:shadow-[#d4af37]/25 transition-all transform hover:-translate-y-0.5 whitespace-nowrap"
+                >
+                  <svg className="w-3.5 h-3.5 shrink-0 fill-currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1Z" />
+                  </svg>
+                  <span>TikTok: @mmdaf.studio.project</span>
+                </a>
+              </div>
             </div>
           )}
         </div>

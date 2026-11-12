@@ -132,6 +132,8 @@ test('generateStandaloneHtml and generateMaligeWeddingHtml include VIP Black & G
   assert.ok(mmdafHtml.includes('#b45309'));
   assert.ok(mmdafHtml.includes('https://www.tiktok.com/@mmdaf.studio.project'));
   assert.ok(mmdafHtml.includes('@mmdaf.studio.project'));
+  assert.ok(mmdafHtml.includes('0811-1912-7082'));
+  assert.ok(mmdafHtml.includes('https://wa.me/6281119127082'));
   assert.ok(!mmdafHtml.includes('Menu Makan Malam'));
   assert.ok(!mmdafHtml.includes('Mau custom form seperti diatas?'));
   assert.ok(!mmdafHtml.includes('231 Orang Menyatakan Hadir'));
