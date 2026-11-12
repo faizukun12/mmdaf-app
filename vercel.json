@@ -1,5 +1,6 @@
 {
-  "version": 2,
-  "buildCommand": "echo Static Deploy",
-  "outputDirectory": "."
+  "installCommand": "npm install --legacy-peer-deps",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
