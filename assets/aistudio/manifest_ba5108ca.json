@@ -1,0 +1,18 @@
+{
+  "name": "MMDAF Wedding AI",
+  "short_name": "MMDAF",
+  "description": "Platform Pembuat Undangan Pernikahan Digital Berbasis AI — Edisi VIP Hitam Emas Raminianti & Aliadin",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0c0a09",
+  "theme_color": "#b45309",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/8361/8361180.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

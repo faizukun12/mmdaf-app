@@ -1,0 +1,6 @@
+{
+  "name": "Undangan Pernikahan Justin & Sisca - Tanpa Foto Pengantin",
+  "description": "Replika undangan pernikahan digital tema elegan dilengkapi fitur salin dan unduh script HTML lengkap tanpa foto pengantin.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "MMDAF Wedding AI",
+  "short_name": "MMDAF",
+  "description": "Platform Undangan Digital Multi-Acara mmdaf.my.id & Studio Editor 7x7 Templat",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0c0a09",
+  "theme_color": "#b45309",
+  "icons": [
+    {
+      "src": "/assets/aistudio/1794388703749_7a2ccb9a.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/assets/aistudio/1794388703749_7a2ccb9a.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
